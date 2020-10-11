@@ -302,8 +302,8 @@ static void flv_set_audio_codec(AVFormatContext *s, AVStream *astream,
 
 static int flv_same_video_codec(AVCodecParameters *vpar, int flags)
 {
-    printf("quqi - flv_same_video_codec - flags 3 =======> (%d) \n",
-           flags);
+    //printf("quqi - flv_same_video_codec - flags 3 =======> (%d) \n",
+    //       flags);
     // flags  = 12 / 44 then hevc
     int flv_codecid = flags & FLV_VIDEO_CODECID_MASK; // equal = 12 is hevc
 
@@ -1058,10 +1058,10 @@ retry:
     } else if (type == FLV_TAG_TYPE_VIDEO) {
         stream_type = FLV_STREAM_TYPE_VIDEO;
         flags    = avio_r8(s->pb); // hevc's flags=44
-        printf("quqi flags 1 =======> (%d) \n", flags);
-        av_log(s, AV_LOG_DEBUG,
-               "quqi flags 2 =======> (%d) \n",
-               flags);
+        //printf("quqi flags 1 =======> (%d) \n", flags);
+        //av_log(s, AV_LOG_DEBUG,
+        //       "quqi flags 2 =======> (%d) \n",
+        //       flags);
         size--;
         if ((flags & FLV_VIDEO_FRAMETYPE_MASK) == FLV_FRAME_VIDEO_INFO_CMD)
             goto skip;
